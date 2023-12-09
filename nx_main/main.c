@@ -239,7 +239,10 @@ bool menuUpdate(void) {
             launchMenuBackTask();
         }
         else
-        {
+        {   
+            #ifdef RELEASE_MODE
+            __nx_applet_exit_mode = 1;
+            #endif
             exitflag = 1;
         }
     }
@@ -248,6 +251,9 @@ bool menuUpdate(void) {
     }
     else if (down & HidNpadButton_Plus)
     {
+        #ifdef RELEASE_MODE
+        __nx_applet_exit_mode = 1;
+        #endif
         exitflag = 1;
     }
     else if (menu->nEntries > 0)
