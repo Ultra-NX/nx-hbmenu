@@ -233,8 +233,15 @@ bool menuUpdate(void) {
         menuHandleAButton();
     }
     else if (down & HidNpadButton_B)
-    {
-        launchMenuBackTask();
+    {   
+        if (strcmp(menu->dirname, "sdmc:/switch") == 0) 
+        {
+            launchMenuBackTask();
+        }
+        else
+        {
+            exitflag = 1;
+        }
     }
     else if(down & HidNpadButton_Minus){
         themeMenuStartup();
