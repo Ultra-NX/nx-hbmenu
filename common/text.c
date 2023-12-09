@@ -17,7 +17,7 @@ Result textInit(void) {
     Result rc = setInitialize();
     if (R_SUCCEEDED(rc)) rc = setGetSystemLanguage(&s_textLanguageCode);
     if (R_SUCCEEDED(rc)) rc = setMakeLanguage(s_textLanguageCode, &Language);
-    //if (R_SUCCEEDED(rc) && Language < 17) s_textLang = Language;//TODO: Re-enable this once language.c supports all used languages.
+    if (R_SUCCEEDED(rc) && Language < 17) s_textLang = Language;//TODO: Re-enable this once language.c supports all used languages.
     setExit();
     if (R_FAILED(rc)) return rc;
     #else
